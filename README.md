@@ -25,25 +25,36 @@ It wrote the code, ran away, and now the game is unplayable.
 
 ## 📝 Document Your Experience
 
-- [ ] Describe the game's purpose.
-- [ ] Detail which bugs you found.
-- [ ] Explain what fixes you applied.
+- [The game is a number guessing game where the player tries to guess a secret number within a limited number of attempts. ] Describe the game's purpose.
+- [hints were reversed (Too High told you to go Higher), the secret number converted to a string on every 2nd attempt making it impossible to win, and the score dropped below zero on wrong guesses. ] Detail which bugs you found.
+- [ corrected the hint direction in `check_guess`, removed the string conversion bug in `app.py`, fixed scoring to never go negative, and refactored all logic functions into `logic_utils.py`.] Explain what fixes you applied.
 
 ## 📸 Demo Walkthrough
 
 Describe your fixed game in numbered steps so a reader can follow along without watching a video:
 
-1. <!-- Describe this step -->
-2. <!-- Describe this step -->
-3. <!-- Describe this step -->
-4. <!-- Describe this step -->
-5. <!-- Add more steps as needed -->
+1. User enters a guess of 40 → game returns "Go HIGHER"
+2. User enters 70 → game returns "Go LOWER"
+3. User enters 50 (the secret) → " Correct!" and balloons
+4. Score updates correctly and never goes negative
+5. Game ends after the correct guess
 
 **Screenshot** *(optional)*: <!-- Insert a screenshot of your fixed, winning game here -->
 
 ## 🧪 Test Results
 
 ```
+pytest
+==================== test session starts =====================
+platform win32 -- Python 3.13.4, pytest-9.1.0, pluggy-1.6.0
+rootdir: C:\Users\HP\Downloads\bytebites_tinker_activity\ai110-module1show-gameglitchinvestigator-starter
+plugins: anyio-4.14.0
+collected 5 items                                             
+
+tests\test_game_logic.py .....                          [100%]
+
+===================== 5 passed in 0.16s ======================
+
 # Paste your pytest output here, e.g.:
 # pytest tests/
 # ========================= X passed in 0.XXs =========================
